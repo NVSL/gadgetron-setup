@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# weeee make the package manager do the work
+if command -v apt-get; then
+    sudo apt-get install cython python-lxml libspatialindex-dev python-pygame npm
+fi
+
+
 dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree"
 
 if [ "$USE_VENV." = "yes." ]; then
