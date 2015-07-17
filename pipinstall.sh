@@ -2,7 +2,7 @@
 
 # weeee make the package manager do the work
 if command -v apt-get; then
-    sudo apt-get install cython python-lxml libspatialindex-dev python-pygame npm
+    sudo apt-get install cython python-lxml libspatialindex-dev python-pygame npm libcgal-dev
 fi
 
 
