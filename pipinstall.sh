@@ -12,6 +12,7 @@ if [ "$USE_VENV." = "yes." ]; then
     echo Using a virtual environment
     virtualenv $GADGETRON_ROOT/Python
     pip install $dependencies
+    pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
     exit;
 fi
 
@@ -20,8 +21,10 @@ site_packages=`python -c "from distutils.sysconfig import get_python_lib; print(
 if [ -w "$site_packages" ] 
 then
     pip install $dependencies
+    pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
 else
     sudo pip install $dependencies
+    sudo pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
 fi
 
 

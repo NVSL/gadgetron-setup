@@ -1,6 +1,5 @@
 
 default:
-	./pipinstall.sh
 
 clean:
 
