@@ -25,7 +25,7 @@ VENV=$(cd $GADGETRON_ROOT/python_venv; pwd -P) # get the canonical path
 PATH=$VENV/bin:$PATH
 
 for p in $packages; do
-    git clone http://146.148.85.41/swanson/${p}.git
+    git clone ssh://git@146.148.85.41/swanson/${p}.git
     (cd $p; python setup.py develop)
 done
 
