@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
 
-# weeee make the package manager do the work
+# Install the non-python dependencies
 if command -v apt-get; then
     sudo apt-get install cython python-lxml libspatialindex-dev python-pygame npm swig libpython-dev libcgal-dev
+elif command -v brew; then
+    brew install cgal swig
+elif command -v port; then
+    sudo port install cgal swig swig-python
 fi
 
 
@@ -26,6 +30,4 @@ else
     sudo pip install $dependencies
     sudo pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
 fi
-
-
 
