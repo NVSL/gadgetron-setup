@@ -9,8 +9,7 @@ elif command -v port; then
     sudo port install cgal swig swig-python
 fi
 
-
-dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree"
+dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree cgal-bindings"
 
 if [ "$USE_VENV." = "yes." ]; then
     echo Using a virtual environment
