@@ -16,17 +16,21 @@ if [ "$USE_VENV." = "yes." ]; then
     virtualenv $GADGETRON_ROOT/Python
     pip install $dependencies
     pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
-    exit;
-fi
-
-site_packages=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
-
-if [ -w "$site_packages" ] 
-then
-    pip install $dependencies
-    pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
 else
-    sudo pip install $dependencies
-    sudo pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
+
+
+    site_packages=`python -c "from distutils.sysconfig import get_python_lib; print(get_python_lib())"`
+
+    if [ -w "$site_packages" ] 
+    then
+	pip install $dependencies
+	pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
+    else
+	sudo pip install $dependencies
+	sudo pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
+    fi
 fi
 
+cd ..
+git clone git@github.com:NVSL/gadgetron-setup.git
+gadgetron-setup/gitinstall.sh $GADGETRON_ROOT

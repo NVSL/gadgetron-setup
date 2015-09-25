@@ -16,7 +16,7 @@ GITREPO=git@github.com:NVSL/$2.git
 echo Checking out svn+ssh://bbfs-01.calit2.net/grw/Gordon/svn/trunk/Gadgets/$1 from svn, and moving it to $GETREPO
 echo If $GITREPO does not exist, this will fail.
 
-echo git svn clone --authors-file=$GADGETRON_ROOT/Tools/pyinstall/names.mapped svn+ssh://bbfs-01.calit2.net/grw/Gordon/svn/trunk/Gadgets/$DIR
-echo cd $(echo $DIR| perl -ne '@a =split("/"); print "$a[-1]"')
-echo git remote add origin $GITREPO
-echo git push -u origin master
+git svn clone --authors-file=$GADGETRON_ROOT/Tools/pyinstall/names.mapped svn+ssh://bbfs-01.calit2.net/grw/Gordon/svn/trunk/Gadgets/$DIR
+cd $(echo $DIR| perl -ne '@a =split("/"); print "$a[-1]"')
+git remote add origin $GITREPO
+git push -u origin master
