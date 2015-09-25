@@ -32,5 +32,10 @@ else
 fi
 
 cd ..
-git clone git@github.com:NVSL/gadgetron-setup.git
+if [ -e gadgetron-setup ]; then
+    (cd gadgetron-setup; git pull)
+else
+    git clone git@github.com:NVSL/gadgetron-setup.git
+fi
+
 gadgetron-setup/gitinstall.sh $GADGETRON_ROOT
