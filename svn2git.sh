@@ -20,3 +20,54 @@ git svn clone --authors-file=$GADGETRON_ROOT/Tools/pyinstall/names.mapped svn+ss
 cd $(echo $DIR| perl -ne '@a =split("/"); print "$a[-1]"')
 git remote add origin $GITREPO
 git push -u origin master
+
+
+# #private
+# BOBBuilder
+# AutomaKit
+# CaseMaker
+# CbC
+# CircuitsByCode
+# Dingo
+# Koala
+# GadgetMaker2
+# gspec
+# jet_2
+# ucsdgadgetron
+
+# JetLibrary
+
+# #public
+# Checkers
+# Eagle
+# EagleArt
+# EagleComposer
+# EagleUtil
+# GCompiler
+# SVGUtil
+# gadgetron-setup
+# gcam
+# laserTurtle
+# rpiutil
+# util
+
+# Designs
+# GadgetronCAM
+# GadgetronEagleLibs
+
+# Split out Dingo test boards into a separate repo
+
+# #left behind
+# Makefile
+# PADSUtil
+# GadgetMaker1
+# GadgetMakerEagle1
+# Rocket
+# cygwin
+# pcbartmaker
+# pyinstall
+# ucsdjet
+# dummysch
+
+
+
