@@ -32,10 +32,10 @@ if [ ".$USE_VENV" != "." ]; then
     PATH=$PYTHON_ENV/bin:$PATH
 fi
 
-packages="BOBBuilder" #test-Swoop test-Koala2"
+packages="NVSL/BOBBuilder NVSL/gadgetron-vm-util" #test-Swoop test-Koala2"
 
 for p in $packages; do
-    git clone git@github.com:NVSL/$p.git
+    git clone git@github.com:$p.git
     (cd $p; make)
 done
 
