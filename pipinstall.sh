@@ -11,6 +11,9 @@ fi
 
 dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree cgal-bindings"
 
+# this is necessary on unbuntu, it seems.
+export CPATH=/usr/include/libxml2
+
 if [ "$USE_VENV." = "yes." ]; then
     echo Using a virtual environment
     virtualenv $GADGETRON_ROOT/Python
