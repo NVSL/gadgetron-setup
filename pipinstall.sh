@@ -14,9 +14,9 @@ if [ "$GADGETRON_ROOT." = "." ]; then
     echo "\$GADGETRON_ROOT not set.  Quiting."
     exit
 fi
-dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree rtree pyparsing"
+dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree rtree pyparsing cgal-bindings"
 
-global_deps="cgal-bindings  virtualenv"
+global_deps="virtualenv"
 
 sudo pip install $global_deps
 
