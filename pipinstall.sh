@@ -15,6 +15,7 @@ if [ "$GADGETRON_ROOT." = "." ]; then
     exit
 fi
 dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree rtree pyparsing"
+#cgal-bindings"
 
 
 global_deps="virtualenv"
@@ -44,9 +45,14 @@ else
     fi
 fi
 
+git clone https://github.com/sciencectn/cgal-bindings.git
 
 if [ "$USE_VENV." = "yes." ]; then
-    (cd cgal; python
+    (cd cgal-binding; python setup.py install)
+then
+    (cd cgal-binding; sudo python setup.py install)
+fi
+
 
 cd ..
 if [ -e gadgetron-setup ]; then
