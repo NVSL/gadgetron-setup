@@ -14,7 +14,8 @@ if [ "$GADGETRON_ROOT." = "." ]; then
     echo "\$GADGETRON_ROOT not set.  Quiting."
     exit
 fi
-dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree rtree pyparsing cgal-bindings"
+dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree rtree pyparsing"
+
 
 global_deps="virtualenv"
 
@@ -26,6 +27,7 @@ export CPATH=/usr/include/libxml2
 if [ "$USE_VENV." = "yes." ]; then
     echo Using a virtual environment
     virtualenv $GADGETRON_ROOT/Python
+    PATH=$PATH:$GADGETRON_ROOT/Python/bin
     pip install $dependencies
     pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
 else
@@ -41,6 +43,10 @@ else
 	sudo pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
     fi
 fi
+
+
+if [ "$USE_VENV." = "yes." ]; then
+    (cd cgal; python
 
 cd ..
 if [ -e gadgetron-setup ]; then
