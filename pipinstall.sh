@@ -45,12 +45,14 @@ else
     fi
 fi
 
-git clone https://github.com/sciencectn/cgal-bindings.git
+if ! [ -d "cgal-bindings" ];then
+    git clone https://github.com/sciencectn/cgal-bindings.git
+fi
 
 if [ "$USE_VENV." = "yes." ]; then
-    (cd cgal-binding; python setup.py install)
-then
-    (cd cgal-binding; sudo python setup.py install)
+    (cd cgal-bindings; python setup.py install)
+else
+    (cd cgal-bindings; sudo python setup.py install)
 fi
 
 
