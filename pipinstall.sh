@@ -10,9 +10,15 @@ elif command -v port; then
     sudo port install cgal swig swig-python
 fi
 
-dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree cgal-bindings rtree pyparsing"
+if [ "$GADGETRON_ROOT." = "." ]; then
+    echo "\$GADGETRON_ROOT not set.  Quiting."
+    exit
+fi
+dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bintrees numpy jinja2 Sphinx asciitree rtree pyparsing"
 
-sudo pip install virtualenv
+global_deps="cgal-bindings  virtualenv"
+
+sudo pip install $global_deps
 
 # this is necessary on unbuntu, it seems.
 export CPATH=/usr/include/libxml2

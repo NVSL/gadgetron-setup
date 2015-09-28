@@ -27,7 +27,7 @@ if [ ".$USE_VENV" != "." ]; then
 	virtualenv $PYTHON_ENV
     fi
 
-    PYTHON_ENV=$(cd $GADGETRON_ROOT/python_venv; pwd -P) # get the canonical path
+    #PYTHON_ENV=$(cd $GADGETRON_ROOT/python_venv; pwd -P) # get the canonical path
 
     PATH=$PYTHON_ENV/bin:$PATH
 fi
