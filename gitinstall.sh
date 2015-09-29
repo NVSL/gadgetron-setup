@@ -35,13 +35,14 @@ fi
 packages="BOBBuilder gadgetron-vm-util" #test-Swoop test-Koala2"
 
 for p in $packages; do
-    if [ -e $p ]; then
+    echo $p
+    if [ -d "$p" ]; then
 	(cd $p; git pull)
     else
 	git clone git@github.com:NVSL/$p.git
     fi
     
-    if [ -e $p/Makefile ]; then
+    if [ -e "$p/Makefile" ]; then
 	(cd $p; make)
     fi
 done
