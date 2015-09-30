@@ -20,15 +20,21 @@ dependencies="cython lxml pypng beautifulsoup4 requests svgwrite Mako clang bint
 
 global_deps="virtualenv"
 
-sudo pip install $global_deps
+if command -v brew; then
+    pip install $global_deps
+else
+    sudo pip install $global_deps
+fi
 
 # this is necessary on unbuntu, it seems.
 export CPATH=/usr/include/libxml2
 
 if [ "$USE_VENV." = "yes." ]; then
     echo Using a virtual environment
-    virtualenv $GADGETRON_ROOT/Python
-    PATH=$PATH:$GADGETRON_ROOT/Python/bin
+    if ! [ -d $GADGETRON_ROOT/Python ]; then
+	virtualenv $GADGETRON_ROOT/Python
+	PATH=$PATH:$GADGETRON_ROOT/Python/bin
+    fi
     pip install $dependencies
     pip install -r $GADGETRON_ROOT/Tools/CbC/requirements.txt
 else
